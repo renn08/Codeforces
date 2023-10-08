@@ -1,6 +1,7 @@
 #include<iostream>
 #include<unordered_map>
 #include<vector>
+#include<string>
 
 using namespace std;
 
@@ -63,3 +64,21 @@ private:
     vector<int> rank;
     vector<pair<int, double>> root; // id->(rootid, weight) id map to its root and its weight
 };
+
+int main() {
+    UnionFindWithWeight u(4);
+    unordered_map<string, int> id;
+    id.emplace("happy", 0);
+    id.emplace("sad", 1);
+    id.emplace("angry", 2);
+    id.emplace("love", 3);
+
+    u.unionset(0, 1, 2);
+    u.unionset(2, 3, 3);
+    u.unionset(1, 2, 1.5);
+    pair<int, double> rootWeight1 = u.find(0);
+    pair<int, double> rootWeight2 = u.find(3);
+    cout << "Does happy and love belong to same set: " << (rootWeight1.first == rootWeight2.first) << endl;
+    cout << "Their weight ratio (happy / love) is: " << rootWeight1.second / rootWeight2.second << endl;
+    return 0;
+}
