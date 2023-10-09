@@ -28,15 +28,16 @@ public:
         return root[x];
     }
 
-    void unionset(int x, int y, double q) { 
+    void unionset(int x, int y, double q) {
+        // special: if update two node's weight ratio within one set, the old ratio will be preserved.
         // suppose x is the dividend, and y is the divisor, then q = x/y
-        // so update the joining root's weight to be 1 / joining node weight 
-        // with respect to its root(need find to determine) * be joined node weight
-        // with respect to its root * (joining node weight/be joined node weight, 
-        // that is newly known, namely their quotient)
-        // union only update weight of the root of each disjoint set,
-        // find will lazily update the weight of node to found 
-        // (and its root and root's parent) to their real weight with respect to newest root
+        // so update the joining root's weight to be 1 / joining node weight
+        // with respect to its root(need find to determine) * be joined node
+        // weight with respect to its root * (joining node weight/be joined node
+        // weight, that is newly known, namely their quotient) union only update
+        // weight of the root of each disjoint set, find will lazily update the
+        // weight of node to found (and its root and root's parent) to their
+        // real weight with respect to newest root
         pair<int, double> rootWeightX = find(x);
         pair<int, double> rootWeightY = find(y);
         int rootx = rootWeightX.first;
