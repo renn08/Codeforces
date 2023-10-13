@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// find the peak idx, cannot
+// find the peak idx, (valid when that vec is strictly 凸)
 int ternarySearch(vector<int>& vec) {
     int n = vec.size();
     int start = 0;
