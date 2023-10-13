@@ -41,22 +41,13 @@ public:
             for (int j = 0; j < adjList[i].size(); ++j) { // check all connected node and update and push to pq if update successfully
                 int v = adjList[i][j].first; // vertex index
                 int vw = adjList[i][j].second; // edge weight
-                cout << v << " " << vw << endl;
                 if (dist[i] + vw < dist[v]) {
                     dist[v] = dist[i] + vw;
                     parent[v] = i;
                     s.emplace(dist[v], v);
                 }
-                cout << "dist[v]: " << v << " " << dist[v] << endl;
             }
         }
-        for (int i = 0; i < dist.size(); ++i) {
-            cout << i << " " << dist[i] << endl;
-        }
-        for (int i = 0; i < parent.size(); ++i) {
-            cout << i << " " << parent[i] << endl;
-        }
-        return;
     }
 
     void printPath(int v) {
@@ -65,9 +56,11 @@ public:
         }
         cout << "The shortest path weight to source from " << v
              << " is:" << dist[v] << endl;
+
         stack<int> path;
         int parentV = parent[v];
         path.emplace(v);
+
         while (parentV != -1) {
             path.emplace(parentV);
             v = parentV;
@@ -80,8 +73,8 @@ public:
             cout << "->" << path.top();
             path.pop();
         }
-        return;
     }
+    
 private:
     vector<vector<pair<int, int> > > adjList;  // each vertex has all its connected
     // vertex with edge weighted (pair: vertex idx, weight)
