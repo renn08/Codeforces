@@ -31,7 +31,7 @@ public:
 
         while (!s.empty()) {
             pair<int, int> p = *s.begin(); // pop the vertex with the min dist
-            s.erase(s.begin());
+            s.erase(s.begin()); // poped out means already optimal
 
             int w = p.first; // weight
             int i = p.second; // idx
@@ -74,7 +74,7 @@ public:
             path.pop();
         }
     }
-    
+
 private:
     vector<vector<pair<int, int> > > adjList;  // each vertex has all its connected
     // vertex with edge weighted (pair: vertex idx, weight)
