@@ -1,7 +1,7 @@
-#include<iostream>
-#include<vector>
-#include<set>
-#include<stack>
+#include <iostream>
+#include <vector>
+#include <set>
+#include <stack>
 
 using namespace std;
 

@@ -1,6 +1,6 @@
 // optimized unionfind with fast union, rank and path compression
-#include<vector>
-#include<iostream>
+#include <vector>
+#include <iostream>
 
 using namespace std;
 
